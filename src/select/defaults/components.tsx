@@ -27,6 +27,7 @@ export const components = new Map<
   [Components.DropDownButton, DefaultComponent('button')],
   [Components.Input, DefaultComponent('div')],
   [Components.InputContainer, DefaultComponent('div')],
+  [Components.Label, DefaultComponent('label')],
   [Components.Option, DefaultComponent('option')],
   [Components.OptionsContainer, DefaultComponent('div')],
   [Components.OptionGroup, DefaultComponent('optgroup')],

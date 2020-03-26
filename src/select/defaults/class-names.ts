@@ -6,6 +6,7 @@ export const classNames = new Map<Components, string>([
   [Components.DropDownButton, 'drop-down-button'],
   [Components.Input, 'input'],
   [Components.InputContainer, 'input-container'],
+  [Components.Label, 'label'],
   [Components.Option, 'option'],
   [Components.OptionsContainer, 'options-container'],
   [Components.Placeholder, 'placeholder'],

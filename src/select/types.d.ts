@@ -9,6 +9,7 @@ declare type HTMLTags =
   | 'button'
   | 'div'
   | 'input'
+  | 'label'
   | 'optgroup'
   | 'option'
   | 'p'
@@ -31,6 +32,7 @@ declare type ClearButtonProps<T = HTMLButtonElement> = Props<T>;
 declare type DropDownButtonProps<T = HTMLButtonElement> = Props<T>;
 declare type InputProps<T = HTMLElement> = Props<T>;
 declare type InputContainerProps<T = HTMLElement> = Props<T>;
+declare type LabelProps<T = HTMLLabelElement> = Props<T>;
 declare type OptionProps<T = HTMLOptionElement> = Props<T>;
 declare type OptionGroupProps<T = HTMLElement> = Props<T>;
 declare type OptionsContainerProps<T = HTMLElement> = Props<T>;
@@ -64,6 +66,7 @@ declare interface SelectComponentProps {
   componentsProps?: ComponentsPropsMap;
   componentsStyles?: ComponentsStyles;
   theme?: Theme;
+  label?: string;
 }
 
 declare type ComponentsProps =

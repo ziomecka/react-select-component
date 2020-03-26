@@ -38,6 +38,7 @@ export const SelectComponent: React.FunctionComponent<SelectComponentProps> = pr
 
   const {
     options,
+    label,
     multiple,
     clearable,
     tagClearable,
@@ -87,6 +88,9 @@ export const SelectComponent: React.FunctionComponent<SelectComponentProps> = pr
     components.get(Components.InputContainer) ||
     defaultComponents.get(Components.InputContainer);
 
+  const Label =
+    components.get(Components.Label) || defaultComponents.get(Components.Label);
+
   const Option =
     components.get(Components.Option) ||
     defaultComponents.get(Components.Option);
@@ -125,6 +129,7 @@ export const SelectComponent: React.FunctionComponent<SelectComponentProps> = pr
   DropDownButton.displayName = Components.DropDownButton;
   Input.displayName = Components.Input;
   InputContainer.displayName = Components.InputContainer;
+  Label.displayName = Components.Label;
   Option.displayName = Components.Option;
   OptionsContainer.displayName = Components.OptionsContainer;
   OptionGroup.displayName = Components.OptionGroup;
@@ -242,6 +247,7 @@ export const SelectComponent: React.FunctionComponent<SelectComponentProps> = pr
     statePropsBuilder(Components.InputContainer),
   );
   const inputProps = memoize(statePropsBuilder(Components.Input));
+  const labelProps = memoize(statePropsBuilder(Components.Label));
   const placeholderProps = memoize(statePropsBuilder(Components.Placeholder));
   const tagClearButtonProps = memoize(
     statePropsBuilder(Components.TagClearButton),
@@ -266,6 +272,7 @@ export const SelectComponent: React.FunctionComponent<SelectComponentProps> = pr
         {...selectContainerProps()}
         onClick={selectContainerOnClick}
       >
+        {label && <Label {...labelProps()}>{label}</Label>}
         <InputContainer {...inputContainerProps()}>
           <Input {...inputProps()}>
             {!selectedOptions.size && (

@@ -21,6 +21,10 @@ const inputContainer: InputContainerProps = {
   className: classNames.get(Components.InputContainer),
 };
 
+const label: LabelProps = {
+  className: classNames.get(Components.Label),
+};
+
 const option: OptionProps = {
   className: classNames.get(Components.Option),
   stateClassNames: {
@@ -67,6 +71,7 @@ export const props = new Map<Components, ComponentsProps>([
   [Components.DropDownButton, dropDownButton],
   [Components.Input, input],
   [Components.InputContainer, inputContainer],
+  [Components.Label, label],
   [Components.Option, option],
   [Components.OptionsContainer, optionsContainer],
   [Components.Placeholder, placeholder],
@@ -75,5 +80,3 @@ export const props = new Map<Components, ComponentsProps>([
   [Components.Tag, tag],
   [Components.TagClearButton, tagClearButton],
 ]);
-
-// export const componentsProps = new ComponentsPropsMap([]);

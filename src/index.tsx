@@ -12,6 +12,7 @@ const options = [
   'some extremely extremly long option',
 ];
 const placeholder = 'Default-styled placeholder';
+const label = 'Label';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FunctionComponent = () => {
           quam nisl, hendrerit non lacinia eu, congue ac metus.
         </span>
         <Select
+        label={label}
           options={options}
           placeholder={'Custom-styled placeholder'}
           componentsProps={

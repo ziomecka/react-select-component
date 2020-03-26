@@ -4,6 +4,7 @@ export enum Components {
   DropDownButton = 'DropDownButton',
   Input = 'Input',
   InputContainer = 'InputContainer',
+  Label = 'Label',
   Option = 'Option',
   OptionsContainer = 'OptionsContainer',
   OptionGroup = 'OptionGroup',
