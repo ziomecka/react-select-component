@@ -1,0 +1,39 @@
+@mixin container
+  position: relative
+  height: 100%
+  background-color: inherit
+  min-height: inherit
+
+@mixin position($position: absolute, $top: 50%, $right: initial, $bottom: initial, $left: initial)
+  position: $position
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left
+
+@mixin afterElement($cont, $top: initial, $right: initial, $bottom: initial, $left: initial, $color: inherit)
+  content: $cont
+  position: relative
+  right: 0
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left
+  color: $color
+  font-size: inherit
+  display: inline-block
+  height: 100%
+  width: 100%
+
+@mixin buttonIcon
+  padding: 0
+  margin-left: #{$iconButtonMargin}px
+  height: #{$iconButtonWidth}px
+  width: #{$iconButtonWidth}px
+  color: $iconButtonColor
+  font-size: #{$iconButtonFontSize}px
+  line-height: 1em
+  background: inherit
+  border: none
+  box-shadow: none
+  outline: none

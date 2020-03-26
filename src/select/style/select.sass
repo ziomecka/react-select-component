@@ -1,0 +1,171 @@
+// Resets
+div, button, input
+  box-sizing: border-box
+p
+  margin: 0
+
+.select
+  background: $backgroundColor
+  display: inline-block
+  position: relative
+  width: #{$selectContainerWidth}px
+  min-height: #{$selectContainerHeight}px
+  border-style: solid
+  overflow: hidden
+  padding: 0
+  outline-color: $secondaryColor
+  &:not([disabled]):focus
+    overflow: visible
+    .options-container
+      padding: inherit
+      min-height: auto
+      max-height: #{$optionsContainerHeight}px
+      visibility: visible
+    .drop-down-button
+      &:after
+        transform: rotate(270deg)
+  &-selected:not([disabled])
+    .input-container:hover
+      .clear-button
+        display: block
+        z-index: 2000
+        opacity: 1
+  &-selected:not([disabled])
+  &-multiselect
+    .tag
+      background-color: $hintBackgroundColor
+
+.select[disabled]
+  background: $hintBackgroundColor
+  outline: none
+  color: rgba(0,0,0,.4)
+  .select-container, .input-container
+    background: transparent
+
+// Select containers
+.select-container
+  @include container
+  display: block
+  overflow: visible
+
+.input-container
+  @include container
+  display: flex
+  flex-wrap: wrap
+  height: 100%
+  flex: 80% 0 0
+
+.options-container
+  @include container
+  height: auto
+  position: absolute
+  left: -#{$borderWidth}px
+  top: #{$selectContainerHeight + $padding * 2 + $borderWidth * 2}px
+  visibility: hidden
+  max-height: 0px
+  width: calc(100% + 2 * #{$borderWidth}px)
+  border: solid
+  border-top: none
+  overflow-x: hidden
+  overflow-y: auto
+  z-index: 1000
+  padding: 0
+
+.buttons-container
+  width: 20%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  padding-right: #{$padding}px
+  position: absolute
+  right: 0
+  top: 50%
+  transform: translateY(-50%)
+
+// Select elements
+.input
+  width: 80%
+  display: inline-flex
+  align-items: center
+  flex-wrap: wrap
+
+.option
+  position: relative
+  margin: #{$optionMargin}px 0
+  overflow: hidden
+  background-color: inherit
+  &:after
+    @include afterElement('\2714', #{$padding}px, 0, auto, auto, $backgroundColor )
+    position: absolute
+    width: auto
+    padding: 0 #{$padding}px
+    background-color: inherit
+  &:hover
+    background-color: $highlightBackgroundColor
+    &:after
+      background-color: inherit
+      color:  $fontHintColor
+  &-selected
+    background-color: $hintBackgroundColor
+    &:after, &:hover:after
+      color: $secondaryColor
+
+.tag
+  display: inline-flex
+  position: relative
+  align-items: center
+  white-space: nowrap
+  margin: #{$tagMargin}px #{$tagMargin* 4}px #{$tagMargin}px 0
+  width: auto
+  overflow-x: hidden
+  padding-left: #{$padding}px
+  padding-right: 28px
+  // &-multiselect
+  //   background-color: $hintBackgroundColor
+
+.placeholder
+  margin: 0
+  color: $placeholderColor
+
+// Buttons
+.drop-down-button
+  @include buttonIcon
+  &:after
+    @include afterElement('>', 0, auto, auto, 0)
+    font-stretch: expanded
+    transform: rotate(90deg)
+    transition: transform #{$transition}s ease-in-out
+
+.tag-clear-button
+  @include buttonIcon
+  @include position(absolute, 50%, 0)
+  background-color: inherit
+  transform: translateY(-50%)
+  display: flex
+  align-items: center
+  margin-left: 0
+  padding: 0 6px
+  height: 1rem * 1.1 // HERE
+  width: 28px
+  &:after
+    @include afterElement('\2a2f', 0, 0px)
+    color: initial
+
+.clear-button
+  @include buttonIcon
+  display: none
+  &:after
+    @include afterElement('\2a2f', 0, auto, auto, 0)
+    border-radius: 50%
+    font-stretch: expanded
+    width: #{$iconButtonWidth}px
+    height: #{$iconButtonWidth}px
+    color: $backgroundColor
+    background-color: $clearButtonBackgroundColor
+    position: static
+
+.select-clearable:not([disabled])
+  .input-container:hover
+    .drop-down-button
+      display: none
